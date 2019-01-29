@@ -22,7 +22,7 @@ const getOne = (req,res,next)=> {
 
 const create = (req,res,next) => {
     const data = model.create(req.body)
-
+    console.log(req.body)
     if(data.error){
         return next({status:404, message: `failed to create blog`, error: data.error})
     }

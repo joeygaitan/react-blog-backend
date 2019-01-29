@@ -33,7 +33,7 @@ function create(body){
     const error = []
     
     if(!header && !desc){
-        error.push(`please add required information`)
+        error.push(`not sending in the information`)
         return { error }
     }
 

@@ -1,17 +1,18 @@
 const express = require('express')
 const app = express()
 const morgan = require('morgan')
-const port = process.env.PORT || 3001
+const port = process.env.PORT || 3005
 const bodyParser = require('body-parser')
+const cors = require('cors')
 
 app.use(bodyParser.json())
-
+app.use(cors())
 app.use('/blogs', require('./MVC/routes/blogs'))
 
 //shows the errors from the routes
 app.use((err,req,res,next)=>{
     console.log(err)
-    const status = err.status || 404 
+    const status = err.status || 500
     res.status(status).json({ error: err })
 })
 
